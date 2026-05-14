@@ -48,18 +48,18 @@ for ($i = 1; $i -le $HEALTH_RETRIES; $i++) {
     try {
         $r = Invoke-WebRequest -Uri "http://localhost:$NEW_PORT/health" -UseBasicParsing -TimeoutSec 3 -ErrorAction Stop
         if ($r.StatusCode -eq 200) {
-            Write-Host "  Attempt $i: PASSED"
+            Write-Host "  Attempt ${i}: PASSED"
             $HEALTHY = $true
             break
         }
     } catch {
-        Write-Host "  Attempt $i/$HEALTH_RETRIES`: failed — retrying in ${HEALTH_INTERVAL}s..."
+        Write-Host "  Attempt ${i}/${HEALTH_RETRIES}: failed — retrying in ${HEALTH_INTERVAL}s..."
         Start-Sleep -Seconds $HEALTH_INTERVAL
     }
 }
 
 if (-not $HEALTHY) {
-    Write-Host "ERROR: Health check failed after $HEALTH_RETRIES attempts."
+    Write-Host "ERROR: Health check failed after ${HEALTH_RETRIES} attempts."
     if ($FIRST_DEPLOY) {
         docker compose down
     } else {
