@@ -1,0 +1,46 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Testing & coverage
+.pytest_cache/
+.coverage
+coverage.xml
+htmlcov/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Dev tooling
+.ruff_cache/
+.mypy_cache/
+
+# Project files not needed in image
+tests/
+.github/
+docs/
+nginx/
+*.md
+*.sh
+*.yml
+!requirements.txt
+*.toml
+*.properties
+*.txt
+!requirements.txt
+
+# Secrets / env
+.env
+.env.*
+
+# Editor
+.vscode/
+.idea/
