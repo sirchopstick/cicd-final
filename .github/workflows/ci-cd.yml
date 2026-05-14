@@ -93,5 +93,5 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Run blue-green deploy
-        shell: bash
-        run: bash deploy.sh
+        shell: pwsh
+        run: .\deploy.ps1

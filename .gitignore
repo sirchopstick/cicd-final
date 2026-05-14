@@ -12,6 +12,7 @@ build/
 coverage.xml
 htmlcov/
 .screenshots/
+action-runner/
 
 # Virtual environments
 .venv/
