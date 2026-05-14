@@ -11,6 +11,7 @@ build/
 .coverage
 coverage.xml
 htmlcov/
+.screenshots/
 
 # Virtual environments
 .venv/
@@ -24,6 +25,12 @@ env/
 # Editor        
 .vscode/
 .idea/
+assignment_plan.md
+questions.md
+tokens.txt
 
 # Generated nginx config (template is committed; actual conf is generated at deploy time)
 nginx/nginx.conf
+
+# Blue-green deployment state
+.active_slot

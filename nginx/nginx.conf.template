@@ -1,0 +1,24 @@
+# nginx.conf.template
+# deploy.sh uses sed to replace {{ACTIVE_HOST}} with either app-blue or app-green,
+# then writes the result to nginx/nginx.conf and reloads the nginx container.
+
+events {
+    worker_connections 1024;
+}
+
+http {
+    upstream app_backend {
+        server {{ACTIVE_HOST}}:8000;
+    }
+
+    server {
+        listen 80;
+
+        location / {
+            proxy_pass         http://app_backend;
+            proxy_set_header   Host              $host;
+            proxy_set_header   X-Real-IP         $remote_addr;
+            proxy_set_header   X-Forwarded-For   $proxy_add_x_forwarded_for;
+        }
+    }
+}

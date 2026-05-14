@@ -1,1 +1,6 @@
 fastapi
+uvicorn[standard]
+pytest
+pytest-cov
+httpx
+ruff
